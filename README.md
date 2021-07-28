@@ -33,7 +33,7 @@ To start, you will need to install the package. To do that, simply run `npm i pr
 ```js
 const Profiles = require("profiles.js");
 
-const profiles = new Tixte({
+const profiles = new Profiles({
   api_key: "your-user-key-here",
 });
 ```
