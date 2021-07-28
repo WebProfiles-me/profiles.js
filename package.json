@@ -1,0 +1,26 @@
+{
+  "name": "profiles.js",
+  "version": "1.0.0",
+  "description": "RESTful Node.js API Wrapper to interact with the WebProfiles API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebProfiles-me/profiles.js.git"
+  },
+  "keywords": [
+    "webprofiles",
+    "javascript"
+  ],
+  "author": "WebProfiles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WebProfiles-me/profiles.js/issues"
+  },
+  "homepage": "https://github.com/WebProfiles-me/profiles.js#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
