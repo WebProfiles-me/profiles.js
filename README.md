@@ -77,6 +77,14 @@ profiles.fetchUser(id, type).then((result) => console.log(result));
 
 `id` is the user id/username, `type` is the type of id provided (`id` or `username`).
 
+### GET Search Results
+
+```js
+profiles.search(query).then((result) => console.log(result));
+```
+
+`query` is the text to search for.
+
 ### GET User Token Data
 
 ```js
@@ -84,3 +92,13 @@ profiles.validateToken(token).then((result) => console.log(result));
 ```
 
 `token` is the token to validate.
+
+## Editing a Profile
+
+### PUT Edit Bio
+
+```js
+profiles.editBio(bio).then((result) => console.log(result));
+```
+
+`bio` is the new bio to set.

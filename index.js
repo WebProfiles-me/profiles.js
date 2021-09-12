@@ -5,6 +5,7 @@ class Client {
     if (!options.api_key) throw new Error('"api_key" cannot be undefined');
 
     this.api_key = options.api_key;
+    this.user_password = options.user_password;
   }
 
   /**
@@ -66,6 +67,31 @@ class Client {
   }
 
   /**
+   * Search for a user on WebProfiles.
+   * @param {String} query | The query to search for.
+   * @returns SearchElement
+   */
+  async search(query) {
+    try {
+      if (!query || typeof query != "string")
+        return new Error(`${query} is not a valid value for "query".`);
+
+      var res = await fetch(
+        `https://webprofiles.me/api/utils/search/${query}`,
+        {
+          method: "GET",
+        }
+      ).then(async (res) => {
+        return await res.json();
+      });
+
+      return res;
+    } catch (err) {
+      return err;
+    }
+  }
+
+  /**
    * Validate a user token.
    * @param {String} token | The token to validate.
    * @returns UserElement
@@ -81,6 +107,41 @@ class Client {
           method: "GET",
         }
       ).then(async (res) => {
+        return await res.json();
+      });
+
+      return res;
+    } catch (err) {
+      return err;
+    }
+  }
+
+  // EDIT
+  /**
+   * Search for a user on WebProfiles.
+   * @param {String} query | The query to search for.
+   * @returns SearchElement
+   */
+  async editBio(bio) {
+    try {
+      if (!bio || typeof bio != "string")
+        return new Error(`${bio} is not a valid value for "bio".`);
+
+      let token = await this.validateToken(this.api_key);
+
+      var res = await fetch(`https://webprofiles.me/api/users/edit`, {
+        method: "PUT",
+        body: JSON.stringify({
+          bio: bio,
+          id: token.id,
+          oldpassword: this.user_password,
+          password: this.user_password,
+          username: token.username,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(async (res) => {
         return await res.json();
       });
 

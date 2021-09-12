@@ -1,7 +1,9 @@
 const Profiles = require("./index");
 const userToken = "";
+const userPassword = "";
 const profiles = new Profiles({
   api_key: userToken,
+  user_password: userPassword,
 });
 
 (async () => {
@@ -11,7 +13,12 @@ const profiles = new Profiles({
     .fetchUser("milanmdev", "username")
     .then((result) => console.log(result));
 
+  await profiles.search("milanmdev").then((result) => console.log(result));
+
+  await profiles.validateToken(userToken).then((result) => console.log(result));
+
+  // EDIT
   await profiles
-    .validateToken(userToken)
+    .editBio("13 y/o backend JavaScript developer")
     .then((result) => console.log(result));
 })();

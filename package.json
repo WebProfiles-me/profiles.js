@@ -1,6 +1,6 @@
 {
   "name": "profiles.js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "RESTful Node.js API Wrapper to interact with the WebProfiles API",
   "main": "index.js",
   "scripts": {
